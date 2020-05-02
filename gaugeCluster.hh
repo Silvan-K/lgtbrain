@@ -3,7 +3,6 @@
 
 #include <QFrame>
 
-class QGridLayout;
 class gauge;
 
 class gaugeCluster : public QFrame {
@@ -18,14 +17,10 @@ public:
 
   void updateValue(double val);
 
-  QSize sizeHint() const override;
-
 private:
 
-  QGridLayout* p_layout;
   gauge* p_gauge;
   gauge* p_gauge_;
-
 };
 
 #endif
