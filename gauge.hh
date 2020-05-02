@@ -17,13 +17,17 @@ class gauge : public QWidget {
 public:
 
   gauge( QWidget* parent =0);
-
-public:
-
   void updateValue(double val);
 
+  QSize sizeHint() const override
+  {
+    return QSize(m_width, m_height);
+  };
 
 private:
+
+  static constexpr double m_width = 170;
+  static constexpr double m_height = 200;
 
   QLayout* p_layout;
   QLCDNumber* p_num;

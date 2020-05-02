@@ -1,12 +1,12 @@
 #ifndef __GAUGE_CLUSTER_HH
 #define __GAUGE_CLUSTER_HH
 
-#include <QWidget>
+#include <QFrame>
 
-class QLayout;
+class QGridLayout;
 class gauge;
 
-class gaugeCluster : public QWidget {
+class gaugeCluster : public QFrame {
 
   Q_OBJECT
 
@@ -18,10 +18,13 @@ public:
 
   void updateValue(double val);
 
+  QSize sizeHint() const override;
+
 private:
 
-  QLayout* p_layout;
+  QGridLayout* p_layout;
   gauge* p_gauge;
+  gauge* p_gauge_;
 
 };
 
