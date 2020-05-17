@@ -14,8 +14,8 @@ INCLUDEPATH += .
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
-HEADERS += gauge.hh gaugeCluster.hh
-SOURCES += gauge.cc gaugeCluster.cc main.cc
+HEADERS += gauge.hh gaugeCluster.hh dataReadThread.hh
+SOURCES += gauge.cc gaugeCluster.cc dataReadThread.cc main.cc
 
 # QT modules
 QT += widgets

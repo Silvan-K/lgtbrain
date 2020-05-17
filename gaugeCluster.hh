@@ -15,12 +15,11 @@ public:
 
 public:
 
-  void updateValue(double val);
+  void updateValues(std::vector<double> values);
 
 private:
 
-  gauge* p_gauge;
-  gauge* p_gauge_;
+  std::vector<gauge*> p_gauges;
 };
 
 #endif

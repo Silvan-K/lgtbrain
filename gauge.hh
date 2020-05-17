@@ -12,7 +12,7 @@ class gauge : public QFrame {
 
 public:
 
-  gauge( QWidget* parent =0);
+  gauge(const std::string& label, QWidget* parent=0);
   
   void updateValue(double val);
 

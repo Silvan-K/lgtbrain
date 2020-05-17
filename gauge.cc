@@ -16,7 +16,7 @@ gauge::gauge(const std::string& label, QWidget* parent) : QFrame(parent)
   p_num->setDigitCount(2);
 
   // Set up the label displaying the unit
-  p_label = new QLabel("Obs / [U]", this);
+  p_label = new QLabel(label.c_str(), this);
   p_label->setFont(QFont("DejaVu Sans", 20));
   p_label->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
   p_label->setFrameStyle(QFrame::Box);

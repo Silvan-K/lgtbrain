@@ -6,23 +6,26 @@
 
 gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
 {
-  p_gauge  = new gauge(this);
-  p_gauge_ = new gauge(this);
+  p_gauges.resize(2);
+  p_gauges[0] = new gauge("TMP", this);
+  p_gauges[1] = new gauge("MTP", this);
   
   QGridLayout* layout = new QGridLayout(this);
-  layout->addWidget(p_gauge,  0, 0);
-  layout->addWidget(p_gauge_, 0, 1);
+  layout->addWidget(p_gauges[0], 0, 0);
+  layout->addWidget(p_gauges[1], 1, 1);
   setLayout(layout);
 
   //setFrameStyle(QFrame::Panel | QFrame::Raised);
   //setLineWidth(2);
-  updateValue(10);
+  updateValues({10.,20.});
 
   setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 }
 
-void gaugeCluster::updateValue(double val)
+void gaugeCluster::updateValues(std::vector<double> values)
 {
-  p_gauge->updateValue(val);
-  p_gauge_->updateValue(21);
+  auto v = values.begin();
+  auto g = p_gauges.begin();
+  for(; (v!=values.end() && g!=p_gauges.end()) ; ++v , ++g)
+      (*g)->updateValue(*v);
 }
