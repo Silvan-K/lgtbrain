@@ -2,7 +2,6 @@
 #define __DATA_READ_THREAD_HH
 
 #include "ECUPort.hh"
-
 #include <QThread>
 
 class dataReadThread : public QThread {
@@ -20,6 +19,8 @@ signals:
 protected:
 
   void run() override;
+  int provideDataWrapper(const SSM::Observables& observables,
+			 const SSM::Values& data);
 
 private:
 
