@@ -1,6 +1,8 @@
 #ifndef __DATA_READ_THREAD_HH
 #define __DATA_READ_THREAD_HH
 
+#include "ECUPort.hh"
+
 #include <QThread>
 
 class dataReadThread : public QThread {
@@ -9,7 +11,7 @@ class dataReadThread : public QThread {
 
 public:
 
-  dataReadThread(QObject* parent=0) : QThread(parent) {};
+  dataReadThread(std::string port, QObject* parent=0);
 
 signals:
 
@@ -18,6 +20,10 @@ signals:
 protected:
 
   void run() override;
+
+private:
+
+  SSM::ECUPort m_port;
   
 };
 

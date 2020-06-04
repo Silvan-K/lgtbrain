@@ -1,6 +1,9 @@
 #include "dataReadThread.hh"
-
+#include "ECUPort.hh"
 #include <cmath>
+
+dataReadThread::dataReadThread(std::string port, QObject* parent)
+  : m_port(port), QThread(parent) {}
 
 void dataReadThread::run()
 {

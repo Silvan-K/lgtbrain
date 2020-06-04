@@ -3,7 +3,7 @@
 #include "dataReadThread.hh"
 
 mainWindow::mainWindow() : p_gauges(new gaugeCluster(this)),
-			   p_datareader(new dataReadThread(this))
+			   p_datareader(new dataReadThread("/dev/ttyUSB0", this))
 {
   setCentralWidget(p_gauges);
   p_datareader->start();

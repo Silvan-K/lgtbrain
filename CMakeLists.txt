@@ -14,6 +14,22 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt5 COMPONENTS Core REQUIRED)
 
+# Require user to supply subarussm path
+set(SUBARUSSM_INSTALL_DIR "" CACHE FILEPATH "Path to subarussm")
+set(SUBARUSSM_INCLUDE_DIR ${SUBARUSSM_INSTALL_DIR}/include/subarussm/)
+set(SUBARUSSM_LIB_DIR ${SUBARUSSM_INSTALL_DIR}/lib/subarussm/)
+
+if(NOT EXISTS ${SUBARUSSM_INCLUDE_DIR}/ECUPort.hh)
+  message(SEND_ERROR "Can't find ECUPort.hh in ${SUBARUSSM_INCLUDE_DIR}")
+endif()
+
+if(NOT EXISTS ${SUBARUSSM_LIB_DIR}/libsubarussm.so)
+  message(SEND_ERROR "Can't find libsubarussm.so in ${SUBARUSSM_LIB_DIR}")
+endif()
+
+include_directories(${SUBARUSSM_INCLUDE_DIR})
+link_directories(${SUBARUSSM_LIB_DIR})
+
 # Build output paths
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}")
