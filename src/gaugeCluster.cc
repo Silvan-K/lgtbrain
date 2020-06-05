@@ -6,13 +6,17 @@
 
 gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
 {
-  p_gauges.resize(2);
-  p_gauges[0] = new gauge("TMP", this);
-  p_gauges[1] = new gauge("MTP", this);
+  p_gauges.resize(4);
+  p_gauges[0] = new gauge("Coolant [C]", this);
+  p_gauges[1] = new gauge("Boost [psi]", this);
+  p_gauges[2] = new gauge("Battery [V]", this);
+  p_gauges[3] = new gauge("AF Corr [%]", this);
   
   QGridLayout* layout = new QGridLayout(this);
   layout->addWidget(p_gauges[0], 0, 0);
-  layout->addWidget(p_gauges[1], 1, 1);
+  layout->addWidget(p_gauges[1], 0, 1);
+  layout->addWidget(p_gauges[2], 1, 0);
+  layout->addWidget(p_gauges[3], 1, 1);
   setLayout(layout);
 
   //setFrameStyle(QFrame::Panel | QFrame::Raised);

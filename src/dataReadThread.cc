@@ -2,6 +2,7 @@
 #include "ECUPort.hh"
 
 #include <functional>
+#include <iostream>
 
 dataReadThread::dataReadThread(std::string port, QObject* parent)
   : m_port(port), QThread(parent) {}
@@ -9,10 +10,13 @@ dataReadThread::dataReadThread(std::string port, QObject* parent)
 void dataReadThread::run()
 {
 
-  SSM::ExhaustGasTemperature exhaust_gas_temp;
+  SSM::CoolantTemperature coolant_temp;
   SSM::ManifoldRelativePressure manifold_pressure;
+  SSM::BatteryVoltage battery_voltage;
+  SSM::AirFuelLeanCorrection af_correction;
   
-  SSM::Observables observables { &exhaust_gas_temp, &manifold_pressure };
+  SSM::Observables observables { &coolant_temp, &manifold_pressure,
+				 &battery_voltage, &af_correction };
 
   auto callback = std::bind(&dataReadThread::provideDataWrapper, 
 			    this, std::placeholders::_1, std::placeholders::_2);
