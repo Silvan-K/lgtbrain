@@ -24,7 +24,7 @@ protected:
 
 private:
 
-  SSM::ECUPort m_port;
+  std::string m_port;
   
 };
 
