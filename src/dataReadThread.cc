@@ -32,8 +32,8 @@ void dataReadThread::run()
 	{
 	  // This starts an infinite loop read (can be broken through callback
 	  // return value > 0)
-	  //SSM::ECUPort ecu_port(m_port);
-	  //ecu_port.continuousRead(observables, callback);
+	  SSM::ECUPort ecu_port(m_port);
+	  ecu_port.continuousRead(observables, callback);
 	}
 
       // ECU went offline, wait and re-establish connection as soon as available

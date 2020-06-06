@@ -19,11 +19,7 @@ gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
   layout->addWidget(p_gauges[3], 1, 1);
   setLayout(layout);
 
-  //setFrameStyle(QFrame::Panel | QFrame::Raised);
-  //setLineWidth(2);
-  updateValues({10.,20.});
-
-  setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+  //setFrameStyle(QFrame::Panel | QFrame::Raised); setLineWidth(2);
 }
 
 void gaugeCluster::updateValues(std::vector<double> values)
