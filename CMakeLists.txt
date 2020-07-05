@@ -23,10 +23,6 @@ if(NOT EXISTS ${SUBARUSSM_INCLUDE_DIR}/ECUPort.hh)
   message(SEND_ERROR "Can't find ECUPort.hh in ${SUBARUSSM_INCLUDE_DIR}")
 endif()
 
-if(NOT EXISTS ${SUBARUSSM_LIB_DIR}/libsubarussm.so)
-  message(SEND_ERROR "Can't find libsubarussm.so in ${SUBARUSSM_LIB_DIR}")
-endif()
-
 include_directories(${SUBARUSSM_INCLUDE_DIR})
 link_directories(${SUBARUSSM_LIB_DIR})
 
