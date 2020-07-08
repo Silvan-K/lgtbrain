@@ -4,6 +4,7 @@
 #include <QFrame>
 
 class gauge;
+class barGauge;
 
 class gaugeCluster : public QFrame {
 
@@ -20,6 +21,7 @@ public:
 private:
 
   std::vector<gauge*> p_gauges;
+  barGauge* p_bar_gauge;
 };
 
 #endif

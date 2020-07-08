@@ -7,11 +7,12 @@
 
 gauge::gauge(const std::string& label, QWidget* parent) : QFrame(parent)
 {
+  //setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
   // Set up the LCD number object displaying the value
   p_num = new QLCDNumber(this);
   p_num->setFixedSize(160, 150);
   p_num->setFrameStyle(0);
-  setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   p_num->setDigitCount(3);
 
   // Set up the label displaying the unit

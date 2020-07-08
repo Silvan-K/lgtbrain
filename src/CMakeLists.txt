@@ -1,5 +1,11 @@
 # Build library providing tools for executable
-add_library(lgttools mainWindow.cc dummyDataReadThread.cc dataReadThread.cc gaugeCluster.cc gauge.cc )
+add_library(lgttools mainWindow.cc
+		     dummyDataReadThread.cc
+		     dataReadThread.cc
+		     gaugeCluster.cc
+		     gauge.cc
+		     barGauge.cc
+		     bar.cc)
 
 # Build executable
 add_executable(lgtdisplay lgtdisplay.cc)
