@@ -18,7 +18,6 @@ LCDGauge::LCDGauge(const std::string& label, QWidget* parent) : QFrame(parent)
   // Set up the label displaying the unit
   p_label = new QLabel(label.c_str(), this);
   p_label->setFont(QFont("DejaVu Sans", 18, QFont::Bold));
-  p_label->setAlignment(Qt::AlignCenter);
 
   // Arrange both in layout
   QGridLayout* layout = new QGridLayout(this);
