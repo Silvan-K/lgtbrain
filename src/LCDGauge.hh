@@ -1,19 +1,18 @@
-#ifndef __GAUGE_HH
-#define __GAUGE_HH
+#ifndef __LCD_GAUGE_HH
+#define __LCD_GAUGE_HH
 
 #include <QFrame>
 
 class QLCDNumber;
 class QLabel;
 
-class gauge : public QFrame {
+class LCDGauge : public QFrame {
 
   Q_OBJECT
 
 public:
 
-  gauge(const std::string& label, QWidget* parent=0);
-  
+  LCDGauge(const std::string& label, QWidget* parent=0);
   void updateValue(double val);
 
 private:

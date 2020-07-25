@@ -3,7 +3,7 @@
 
 #include <QFrame>
 
-class gauge;
+class LCDGauge;
 class barGauge;
 
 class gaugeCluster : public QFrame {
@@ -12,7 +12,7 @@ class gaugeCluster : public QFrame {
 
 public:
 
-  gaugeCluster(QWidget* parent =0 );
+  gaugeCluster(QWidget* parent = 0);
 
 public:
 
@@ -20,8 +20,9 @@ public:
 
 private:
 
-  std::vector<gauge*> p_gauges;
-  barGauge* p_bar_gauge;
+  std::vector<LCDGauge*> p_gauges;
+  barGauge* p_rpm_gauge;
+  barGauge* p_boost_gauge;
 };
 
 #endif

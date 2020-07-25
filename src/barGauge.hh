@@ -22,13 +22,7 @@ public:
 private:
 
   QLabel* p_label;
-  QLabel* p_minlabel;
-  QLabel* p_maxlabel;
   bar*    p_bar;
-  double  m_value;
-  double  m_max;
-  double  m_min;
-  
 };
 
 #endif

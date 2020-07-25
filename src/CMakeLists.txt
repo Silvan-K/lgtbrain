@@ -3,7 +3,7 @@ add_library(lgttools mainWindow.cc
 		     dummyDataReadThread.cc
 		     dataReadThread.cc
 		     gaugeCluster.cc
-		     gauge.cc
+		     LCDGauge.cc
 		     barGauge.cc
 		     bar.cc)
 
