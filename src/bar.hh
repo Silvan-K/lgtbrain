@@ -2,7 +2,7 @@
 #define __BAR_HH
 
 #include <QFrame>
-#include <QRect>
+#include <QFont>
 
 class bar : public QFrame
 {
@@ -10,8 +10,12 @@ class bar : public QFrame
 
 public:
 
-  explicit bar(double frac, QWidget *parent = nullptr);
-  void updateFraction(double frac);
+  explicit bar(double min,
+	       double max,
+	       double val,
+	       QWidget *parent = nullptr);
+  
+  void updateValue(double value);
   
   QSize sizeHint() const override;
   QSize minimumSizeHint() const override;
@@ -22,10 +26,13 @@ protected:
 
 private:
 
-  double m_frac;
-  QRect m_rect;
-  static constexpr double  m_height = 200.;
-  static constexpr double  m_width = 20.;
+  double m_val;
+  double m_min;
+  double m_max;
+  static constexpr double m_bar_height = 400.;
+  static constexpr double m_bar_width  = 40.;
+
+  QFont m_font;
 };
 
 #endif
