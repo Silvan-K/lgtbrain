@@ -29,8 +29,8 @@ private:
   double m_val;
   double m_min;
   double m_max;
-  static constexpr int m_bar_height = 400;
-  static constexpr int m_bar_width = 40;
+  static constexpr int m_bar_height = 350;
+  static constexpr int m_bar_width = 30;
   static constexpr int m_bar_label_sep = 10;
   double m_width;
 

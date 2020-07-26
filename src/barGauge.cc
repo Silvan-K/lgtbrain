@@ -12,7 +12,7 @@ barGauge::barGauge(const std::string& label,
 {
   // Set up the label displaying the unit
   p_label = new QLabel(label.c_str(), this);
-  p_label->setFont(QFont("DejaVu Sans", 18, QFont::Bold));
+  p_label->setFont(QFont("DejaVu Sans", 14, QFont::Bold));
 
   // Set up the bar that visualizes the value
   p_bar = new bar(min, max, min, this);

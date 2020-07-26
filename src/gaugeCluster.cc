@@ -11,8 +11,8 @@ gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
   p_gauges.resize(2);
   p_gauges[0] = new LCDGauge("Coolant [C]", this);
   p_gauges[1] = new LCDGauge("Battery [V]", this);
-  p_rpm_gauge   = new barGauge("Engine [RPM]", 0, 8000, this);
-  p_boost_gauge = new barGauge("Boost [psi]", -11, 30, this);
+  p_rpm_gauge   = new barGauge("Engine [RPM]", 0, 7000, this);
+  p_boost_gauge = new barGauge("Boost [psi]", -12, 15, this);
 
   QGridLayout* layout = new QGridLayout(this);
   layout->addWidget(p_gauges[0],   0, 0, 1, 1);
@@ -21,7 +21,9 @@ gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
   layout->addWidget(p_boost_gauge, 0, 2, 2, 1);
   setLayout(layout);
 
-  QGradient gradient(QGradient::CochitiLake);
+  QGradient gradient(QGradient::RichMetal);
+  //QGradient gradient(QGradient::DirtyBeauty);
+  //QGradient gradient(QGradient::SolidStone);
   QPalette pal = palette();
   pal.setBrush(QPalette::Window, gradient);
   setAutoFillBackground(true);

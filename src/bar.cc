@@ -7,7 +7,7 @@
 
 bar::bar(double min, double max, double val, QWidget *parent) :
   QFrame(parent), m_min(min), m_max(max), m_val(val),
-  m_font("DejaVu Sans", 20, QFont::Bold)
+  m_font("DejaVu Sans", 16, QFont::Bold)
 {
   m_label_hi = QString::number(m_max, 'f', 0);
   m_label_lo = QString::number(m_min, 'f', 0);
@@ -42,7 +42,7 @@ void bar::paintEvent(QPaintEvent *event)
   painter.setFont(m_font);
 
   // Make divisible by two to get symmetric full bar
-  const int pen_width(4);
+  const int pen_width(2);
   const int border(pen_width/2);
   
   const double frac = (m_val-m_min)/(m_max-m_min);
@@ -74,9 +74,11 @@ void bar::paintEvent(QPaintEvent *event)
   painter.drawText(box_cu, label_cu);
 
   // Draw partial bar
-  QLinearGradient gradient(part.bottomLeft(), part.topLeft());
-  gradient.setColorAt(0.0, Qt::blue);
-  gradient.setColorAt(1.0, Qt::red);
+  QLinearGradient gradient(full.bottomLeft(), full.topLeft());
+  gradient.setColorAt(0.00, "#2a5298");
+  gradient.setColorAt(0.29, "#44107A");
+  gradient.setColorAt(0.67, "#FF1361");
+  gradient.setColorAt(1.00, "#FFF800");
   painter.setBrush(gradient);
   painter.setPen(Qt::NoPen);
   painter.drawRect(part);
