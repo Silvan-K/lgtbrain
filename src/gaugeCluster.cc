@@ -1,5 +1,5 @@
-#include "LCDGauge.hh"
 #include "gaugeCluster.hh"
+#include "LCDGauge.hh"
 #include "barGauge.hh"
 
 #include <QGridLayout>
