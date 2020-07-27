@@ -21,13 +21,13 @@ gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
   layout->addWidget(p_boost_gauge, 0, 2, 2, 1);
   setLayout(layout);
 
-  QGradient gradient(QGradient::RichMetal);
-  //QGradient gradient(QGradient::DirtyBeauty);
-  //QGradient gradient(QGradient::SolidStone);
-  QPalette pal = palette();
-  pal.setBrush(QPalette::Window, gradient);
-  setAutoFillBackground(true);
-  setPalette(pal);
+  setBackground();
+}
+
+void gaugeCluster::resizeEvent(QResizeEvent* event)
+{
+  QWidget::resizeEvent(event);
+  setBackground();
 }
 
 void gaugeCluster::updateValues(std::vector<double> values)
@@ -36,4 +36,15 @@ void gaugeCluster::updateValues(std::vector<double> values)
   p_gauges[1]->updateValue(values[1]);
   p_rpm_gauge->updateValue(values[2]);
   p_boost_gauge->updateValue(values[3]);
+}
+
+void gaugeCluster::setBackground()
+{
+  QLinearGradient gradient(0,0,0,height());
+  gradient.setColorAt(1.0, "#d7d2cc");
+  gradient.setColorAt(0.0, "#304352");
+  QPalette pal = palette();
+  pal.setBrush(QPalette::Window, gradient);
+  setAutoFillBackground(true);
+  setPalette(pal);
 }

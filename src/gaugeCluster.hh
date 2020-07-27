@@ -5,6 +5,7 @@
 
 class LCDGauge;
 class barGauge;
+class QResizeEvent;
 
 class gaugeCluster : public QFrame {
 
@@ -13,12 +14,15 @@ class gaugeCluster : public QFrame {
 public:
 
   gaugeCluster(QWidget* parent = 0);
-
-public:
-
   void updateValues(std::vector<double> values);
 
+protected:
+
+  void resizeEvent(QResizeEvent* event) override;
+
 private:
+
+  void setBackground();
 
   std::vector<LCDGauge*> p_gauges;
   barGauge* p_rpm_gauge;
