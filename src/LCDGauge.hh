@@ -12,7 +12,9 @@ class LCDGauge : public QFrame {
 
 public:
 
-  LCDGauge(const std::string& label, QWidget* parent=0);
+  LCDGauge(const std::string& label,
+	   int num_dig,
+	   QWidget* parent=0);
   void updateValue(double val);
 
 private:

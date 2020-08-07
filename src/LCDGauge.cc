@@ -5,7 +5,9 @@
 #include <QSizePolicy>
 #include <QGridLayout>
 
-LCDGauge::LCDGauge(const std::string& label, QWidget* parent) : QFrame(parent)
+LCDGauge::LCDGauge(const std::string& label,
+		   int num_dig,
+		   QWidget* parent) : QFrame(parent)
 {
   //setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
@@ -13,7 +15,7 @@ LCDGauge::LCDGauge(const std::string& label, QWidget* parent) : QFrame(parent)
   p_num = new QLCDNumber(this);
   p_num->setFixedSize(100, 75);
   p_num->setFrameStyle(0);
-  p_num->setDigitCount(2);
+  p_num->setDigitCount(num_dig);
 
   // Set up the label displaying the unit
   p_label = new QLabel(label.c_str(), this);

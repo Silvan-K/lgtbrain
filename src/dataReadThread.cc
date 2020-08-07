@@ -16,13 +16,17 @@ void dataReadThread::run()
 
   SSM::CoolantTemperature coolant_temp;
   SSM::BatteryVoltage battery_voltage;
+  SSM::KnockingCorrection knock;
   SSM::EngineSpeed engine_speed;
   SSM::ManifoldRelativePressure manifold_pressure;
+  SSM::ThrottlePedal throttle;
   
   SSM::Observables observables { &coolant_temp,
 				 &battery_voltage,
+				 &knock,
 				 &engine_speed,
-				 &manifold_pressure };
+				 &manifold_pressure,
+				 &throttle};
 
   auto callback = std::bind(&dataReadThread::provideDataWrapper, 
 			    this, std::placeholders::_1, std::placeholders::_2);

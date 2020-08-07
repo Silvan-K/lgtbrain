@@ -27,6 +27,7 @@ private:
   std::vector<LCDGauge*> p_gauges;
   barGauge* p_rpm_gauge;
   barGauge* p_boost_gauge;
+  barGauge* p_throttle_gauge;
 };
 
 #endif
