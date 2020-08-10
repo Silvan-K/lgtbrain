@@ -4,6 +4,7 @@ add_library(lgttools mainWindow.cc
 		     dataReadThread.cc
 		     gaugeCluster.cc
 		     LCDGauge.cc
+		     CumulativeLCDGauge.cc
 		     barGauge.cc
 		     bar.cc)
 

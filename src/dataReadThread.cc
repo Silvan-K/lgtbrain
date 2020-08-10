@@ -14,16 +14,24 @@ dataReadThread::dataReadThread(std::string port, QObject* parent)
 void dataReadThread::run()
 {
 
-  SSM::CoolantTemperature coolant_temp;
   SSM::BatteryVoltage battery_voltage;
-  SSM::KnockingCorrection knock;
+  SSM::CoolantTemperature coolant_temp;
+  SSM::LearnedIgnitionTiming learn;
+
+  SSM::KnockingCorrection knock_corr;
+  SSM::KnockSignal1 knock_1;
+  SSM::KnockSignal2 knock_2;
+    
   SSM::EngineSpeed engine_speed;
   SSM::ManifoldRelativePressure manifold_pressure;
   SSM::ThrottlePedal throttle;
   
-  SSM::Observables observables { &coolant_temp,
-				 &battery_voltage,
-				 &knock,
+  SSM::Observables observables { &battery_voltage,
+				 &coolant_temp,
+				 &learn,
+				 &knock_corr,
+				 &knock_1,
+				 &knock_2,
 				 &engine_speed,
 				 &manifold_pressure,
 				 &throttle};

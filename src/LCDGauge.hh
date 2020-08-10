@@ -15,9 +15,9 @@ public:
   LCDGauge(const std::string& label,
 	   int num_dig,
 	   QWidget* parent=0);
-  void updateValue(double val);
+  virtual void updateValue(double val);
 
-private:
+protected:
 
   QLCDNumber* p_num;
   QLabel* p_label;
