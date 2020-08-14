@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
   app.setApplicationName("LGTInfo");
   
   QMainWindow* mainWin = new mainWindow();
-  mainWin->show();
+  mainWin->showMaximized();
   
   return app.exec();
 }

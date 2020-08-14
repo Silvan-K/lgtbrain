@@ -12,11 +12,11 @@ gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
   p_gauges.resize(6);
   p_gauges[0] = new LCDGauge("Battery [V]", 2, this);
   p_gauges[1] = new LCDGauge("Coolant [C]", 2, this);
-  p_gauges[2] = new LCDGauge("Learned [deg]", 4, this);
+  p_gauges[2] = new LCDGauge("Lrnd [deg]", 4, this);
   
-  p_gauges[3] = new LCDGauge("Knock Corr [deg]", 4, this);
-  p_gauges[4] = new CumulativeLCDGauge("Knock 1 [#]", 2, this);
-  p_gauges[5] = new CumulativeLCDGauge("Knock 2 [#]", 2, this);
+  p_gauges[3] = new LCDGauge("Corr [deg]", 4, this);
+  p_gauges[4] = new CumulativeLCDGauge("Knock 1", 2, this);
+  p_gauges[5] = new CumulativeLCDGauge("Knock 2", 2, this);
   
   p_rpm_gauge   = new barGauge("Engine [RPM]", 0, 7000, this);
   p_boost_gauge = new barGauge("Boost [psi]", -12, 15, this);
@@ -27,9 +27,9 @@ gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
   layout->addWidget(p_gauges[1],   1, 0, 1, 1);
   layout->addWidget(p_gauges[2],   2, 0, 1, 1);
   
-  layout->addWidget(p_gauges[3],   0, 1, 1, 1);
-  layout->addWidget(p_gauges[4],   1, 1, 1, 1);
-  layout->addWidget(p_gauges[5],   2, 1, 1, 1);
+  layout->addWidget(p_gauges[3],   2, 1, 1, 1);
+  layout->addWidget(p_gauges[4],   0, 1, 1, 1);
+  layout->addWidget(p_gauges[5],   1, 1, 1, 1);
   
   layout->addWidget(p_rpm_gauge,   0, 2, 3, 1);
   layout->addWidget(p_boost_gauge, 0, 3, 3, 1);
