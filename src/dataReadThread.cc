@@ -16,11 +16,9 @@ void dataReadThread::run()
 
   SSM::BatteryVoltage battery_voltage;
   SSM::CoolantTemperature coolant_temp;
-  SSM::LearnedIgnitionTiming learn;
 
-  SSM::KnockingCorrection knock_corr;
   SSM::KnockSignal1 knock_1;
-  SSM::KnockSignal2 knock_2;
+  SSM::KnockingCorrection knock_corr;
     
   SSM::EngineSpeed engine_speed;
   SSM::ManifoldRelativePressure manifold_pressure;
@@ -28,10 +26,8 @@ void dataReadThread::run()
   
   SSM::Observables observables { &battery_voltage,
 				 &coolant_temp,
-				 &learn,
-				 &knock_corr,
 				 &knock_1,
-				 &knock_2,
+				 &knock_corr,
 				 &engine_speed,
 				 &manifold_pressure,
 				 &throttle};
