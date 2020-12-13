@@ -9,14 +9,12 @@
 
 gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
 {
-  p_gauges.resize(6);
+  p_gauges.resize(4);
   p_gauges[0] = new LCDGauge("Battery [V]", 2, this);
   p_gauges[1] = new LCDGauge("Coolant [C]", 2, this);
-  p_gauges[2] = new LCDGauge("Lrnd [deg]", 4, this);
   
+  p_gauges[2] = new CumulativeLCDGauge("Knock 1", 2, this);
   p_gauges[3] = new LCDGauge("Corr [deg]", 4, this);
-  p_gauges[4] = new CumulativeLCDGauge("Knock 1", 2, this);
-  p_gauges[5] = new CumulativeLCDGauge("Knock 2", 2, this);
   
   p_rpm_gauge   = new barGauge("Engine [RPM]", 0, 7000, this);
   p_boost_gauge = new barGauge("Boost [psi]", -12, 15, this);
@@ -25,15 +23,13 @@ gaugeCluster::gaugeCluster(QWidget* parent) : QFrame(parent)
   QGridLayout* layout = new QGridLayout(this);
   layout->addWidget(p_gauges[0],   0, 0, 1, 1);
   layout->addWidget(p_gauges[1],   1, 0, 1, 1);
-  layout->addWidget(p_gauges[2],   2, 0, 1, 1);
   
-  layout->addWidget(p_gauges[3],   2, 1, 1, 1);
-  layout->addWidget(p_gauges[4],   0, 1, 1, 1);
-  layout->addWidget(p_gauges[5],   1, 1, 1, 1);
+  layout->addWidget(p_gauges[2],   0, 1, 1, 1);
+  layout->addWidget(p_gauges[3],   1, 1, 1, 1);
   
-  layout->addWidget(p_rpm_gauge,   0, 2, 3, 1);
-  layout->addWidget(p_boost_gauge, 0, 3, 3, 1);
-  layout->addWidget(p_throttle_gauge, 0, 4, 3, 1);
+  layout->addWidget(p_rpm_gauge,   0, 2, 2, 1);
+  layout->addWidget(p_boost_gauge, 0, 3, 2, 1);
+  layout->addWidget(p_throttle_gauge, 0, 4, 2, 1);
   setLayout(layout);
 
   setBackground();
@@ -49,15 +45,13 @@ void gaugeCluster::updateValues(std::vector<double> values)
 {
   p_gauges[0]->updateValue(values[0]);
   p_gauges[1]->updateValue(values[1]);
-  p_gauges[2]->updateValue(values[2]);
 
+  p_gauges[2]->updateValue(values[2]);
   p_gauges[3]->updateValue(values[3]);
-  p_gauges[4]->updateValue(values[4]);
-  p_gauges[5]->updateValue(values[5]);
   
-  p_rpm_gauge->updateValue(values[6]);
-  p_boost_gauge->updateValue(values[7]);
-  p_throttle_gauge->updateValue(values[8]);
+  p_rpm_gauge->updateValue(values[4]);
+  p_boost_gauge->updateValue(values[5]);
+  p_throttle_gauge->updateValue(values[6]);
 }
 
 void gaugeCluster::setBackground()

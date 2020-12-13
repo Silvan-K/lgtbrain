@@ -8,8 +8,8 @@ class dummyDataReadThread : public QThread {
 
 public:
 
-  dummyDataReadThread(int num_data, QObject* parent=0)
-    : m_n(num_data), QThread(parent) {};
+  dummyDataReadThread(QObject* parent=0)
+    : QThread(parent) {};
 
 signals:
 
@@ -18,10 +18,6 @@ signals:
 protected:
 
   void run() override;
-
-private:
-
-  int m_n;
 
 };
 
